@@ -29,7 +29,7 @@ jobs:
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
 
-      - name: downcase REPO
+      - name: Downcase repo
         run: |
           echo "REPO=${GITHUB_REPOSITORY@L}" >> "${GITHUB_ENV}"
         
@@ -39,5 +39,5 @@ jobs:
           context: .
           push: true
           tags: |
-            ghcr.io/${{ vars.repo }}:${{ github.ref_name }}
-            ghcr.io/${{ vars.repo }}:latest
+            ghcr.io/${REPO}:${{ github.ref_name }}
+            ghcr.io/${REPO}:latest
